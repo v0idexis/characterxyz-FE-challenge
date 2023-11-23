@@ -1,8 +1,13 @@
 'use client'
 import React, { Fragment, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import crypto from 'crypto'
 import '@styles/embla_slider.css'
-//v0
+
+function hashStr(str: string) {
+    //Uniqye key generation using current time to prevent duplicate keys if movies appear in multiple sliders
+    return crypto.createHash('sha1').update(str + new Date().toISOString()).digest('hex');
+}
 
 const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;
 
@@ -53,7 +58,7 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                         moviesArray.map((item: MoviesObject) => {
                             {
                                 return (
-                                    <Fragment>
+                                    <Fragment key={hashStr(item.backdrop_path)}>
                                         <div className="embla__slide w-20 max-w-20 relative" >
                                             <img
                                                 alt="Movie Poster"
