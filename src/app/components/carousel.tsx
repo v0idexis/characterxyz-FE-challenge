@@ -5,8 +5,8 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import '../../../public/customStyles/embla.css'
 import Image from 'next/image';
-const tmdb_img = process.env.NEXT_PUBLIC_TMDB_PATH;
-const tmdb_bearer = process.env.NEXT_PUBLIC_TMDB_KEY;
+const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;
+const tmdb_bearer: string = process.env.NEXT_PUBLIC_TMDB_KEY!;
 import playSvg from '@icons/play_arrow.svg'
 
 const options = {
@@ -32,7 +32,7 @@ type MovieObject = {
     video: boolean,
     vote_average: number,
     vote_count: number,
-    logo: string
+    logo?: string
 }
 
 const Carousel: React.FC = () => {
@@ -60,7 +60,6 @@ const Carousel: React.FC = () => {
                 }
             }
 
-            // console.log(trending)
             console.log(moviesArray)
             setHighlights(moviesArray)
         })();
@@ -90,9 +89,7 @@ const Carousel: React.FC = () => {
                                                 <p className="text-2xl 4xl:text-4xl md:text-lg text-white md:text-center drop-shadow-sm max-w-[70vw] md:max-w-[80vw] truncate overflow-hidden z-10">{movie.overview}</p>
 
                                                 <Link href={"/player?movie=" + movie.id} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
-                                                    {/* <button className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150"> */}
                                                     <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
-                                                    {/* </button> */}
                                                 </Link>
                                                 <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen h-[92dvh] md:h-[60dvh] absolute object-cover -z-0" fill />
                                             </div>
