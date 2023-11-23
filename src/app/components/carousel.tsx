@@ -59,8 +59,6 @@ const Carousel: React.FC = () => {
                     console.log(`Failed to fetch logo for movieId: ${movie.id}`)
                 }
             }
-
-            console.log(moviesArray)
             setHighlights(moviesArray)
         })();
     }, []);
@@ -82,13 +80,13 @@ const Carousel: React.FC = () => {
                                             <div className="flex flex-col items-start justify-end gap-4 md:gap-2 bg-white h-[92dvh] md:h-[60dvh] pl-16 pb-20 relative md:p-2 md:items-center md:justify-center">
                                                 {hasLogo &&
                                                     <>
-                                                        <Image src={tmdb_img + movie.logo} alt={movie.title} width={250} height={250} className='z-10 drop-shadow-xl contain' />
+                                                        <Image src={tmdb_img + movie.logo} alt={movie.title} width={250} height={250} className='z-10 drop-shadow-xl object-contain' />
                                                     </>
                                                 }
                                                 <h3 className=" font-Poppins text-4xl 4xl:text-8xl md:text-3xl font-bold text-white md:text-center -mb-2 z-10 drop-shadow-sm max-w-[50vw] md:max-w-[90vw]">{movie.title}</h3>
                                                 <p className="text-2xl 4xl:text-4xl md:text-lg text-white md:text-center drop-shadow-sm max-w-[70vw] md:max-w-[80vw] truncate overflow-hidden z-10">{movie.overview}</p>
 
-                                                <Link href={"/player?movie=" + movie.id} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
+                                                <Link href={{ pathname: "/player", query: { movie: movie.id } }} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
                                                     <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
                                                 </Link>
                                                 <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen h-[92dvh] md:h-[60dvh] absolute object-cover -z-0" fill />
