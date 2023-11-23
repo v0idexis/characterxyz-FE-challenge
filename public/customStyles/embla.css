@@ -1,13 +1,20 @@
 .embla {
-    overflow: hidden;
+    /* overflow: hidden; */
+    box-sizing: border-box;
 }
 
 .embla__container {
     display: flex;
+    box-sizing: border-box;
 }
 
 .embla__slide {
     /* flex: 0 0 100%; */
     flex: 0 0 auto;
     min-width: 0;
+    box-sizing: border-box;
 }
+
+.embla__viewport {
+    overflow: hidden;
+  }

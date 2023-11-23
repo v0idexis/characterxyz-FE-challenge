@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body className='max-w-[100vw]'>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

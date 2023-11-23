@@ -52,10 +52,12 @@ const Home: React.FC = () => {
 
   return (
     <>
-      {/* <NavBar /> */}
-      <Carousel />
-      <RowSlider moviesArray={latest} />
-      {/* <Footer /> */}
+      <div className='w-full h-auto max-w-full bg-gray-950'>
+        <NavBar />
+        <Carousel />
+        {latest.length !== 0 && <RowSlider moviesArray={latest} title='Latest >'/>}
+        {/* <Footer /> */}
+      </div>
     </>
   )
 }

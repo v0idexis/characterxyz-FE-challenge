@@ -65,40 +65,42 @@ const Carousel: React.FC = () => {
 
     return (
         <>
-            <div className="embla" ref={emblaRef}>
-                <div className={"embla__container max-w-[100vw] h-[92dvh] md:h-[60dvh]"}>
-                    {
-                        highlights.length > 0 && highlights.map((movie: MovieObject) => {
-                            let hasLogo: boolean = false;
-                            if ('logo' in movie) {
-                                if (movie.logo != undefined && movie.logo != '') { hasLogo = true; }
-                            }
-                            return (
-                                <Fragment key={movie.id}>
-                                    <div className="embla__slide max-w-[100vw] h-[92dvh] md:h-[60dvh]">
-                                        <div className={`h-[92dvh] max-w-[100vw] w-screen md:h-[60dvh] bg-black`}>
-                                            <div className="flex flex-col items-start justify-end gap-4 md:gap-2 bg-white h-[92dvh] md:h-[60dvh] pl-16 pb-20 relative md:p-2 md:items-center md:justify-center">
-                                                {hasLogo &&
-                                                    <>
-                                                        <Image src={tmdb_img + movie.logo} alt={movie.title} width={250} height={250} className='z-10 drop-shadow-xl object-contain' />
-                                                    </>
-                                                }
-                                                <h3 className=" font-Poppins text-4xl 4xl:text-8xl md:text-3xl font-bold text-white md:text-center -mb-2 z-10 drop-shadow-sm max-w-[50vw] md:max-w-[90vw]">{movie.title}</h3>
-                                                <p className="text-2xl 4xl:text-4xl md:text-lg text-white md:text-center drop-shadow-sm max-w-[70vw] md:max-w-[80vw] truncate overflow-hidden z-10">{movie.overview}</p>
+            <div className='w-full max-w-full overflow-hidden mb-8'>
+                <div className="embla" ref={emblaRef}>
+                    <div className={"embla__container max-w-full h-[92dvh] md:h-[60dvh]"}>
+                        {
+                            highlights.length > 0 && highlights.map((movie: MovieObject) => {
+                                let hasLogo: boolean = false;
+                                if ('logo' in movie) {
+                                    if (movie.logo != undefined && movie.logo != '') { hasLogo = true; }
+                                }
+                                return (
+                                    <Fragment key={movie.id}>
+                                        <div className="embla__slide max-w-full h-[92dvh] md:h-[60dvh]">
+                                            <div className={`h-[92dvh] max-w-full w-screen md:h-[60dvh] bg-black`}>
+                                                <div className="flex flex-col items-start justify-end gap-4 md:gap-2 bg-white h-[92dvh] md:h-[60dvh] pl-16 pb-20 relative md:p-2 md:items-center md:justify-center">
+                                                    {hasLogo &&
+                                                        <>
+                                                            <Image src={tmdb_img + movie.logo} alt={movie.title} width={250} height={250} className='z-10 drop-shadow-xl object-contain' />
+                                                        </>
+                                                    }
+                                                    <h3 className=" font-Poppins text-4xl 4xl:text-8xl md:text-3xl font-bold text-white md:text-center -mb-2 z-10 drop-shadow-sm max-w-[50vw] md:max-w-[90vw]">{movie.title}</h3>
+                                                    <p className="text-2xl 4xl:text-4xl md:text-lg text-white md:text-center drop-shadow-sm max-w-[70vw] md:max-w-[80vw] truncate overflow-hidden z-10">{movie.overview}</p>
 
-                                                <Link href={{ pathname: "/player", query: { movie: movie.id } }} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
-                                                    <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
-                                                </Link>
-                                                <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen h-[92dvh] md:h-[60dvh] absolute object-cover -z-0" fill />
+                                                    <Link href={{ pathname: "/player", query: { movie: movie.id } }} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
+                                                        <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
+                                                    </Link>
+                                                    <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen h-[92dvh] md:h-[60dvh] absolute object-cover -z-0" fill />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Fragment>
-                            )
-                        })
-                    }
-                </div>
-            </div >
+                                    </Fragment>
+                                )
+                            })
+                        }
+                    </div>
+                </div >
+            </div>
         </>
     )
 }

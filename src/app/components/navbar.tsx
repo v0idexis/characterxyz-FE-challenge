@@ -1,8 +1,8 @@
 const NavBar: React.FC = () => {
     return (
         <>
-            <div className="flex flex-row items-center m-0 p-1 w-full h-[8vh] bg-gradient-to-b from-black to-transparent">
-                <p>Nav</p>
+            <div className="flex flex-row items-center justify-between m-0 p-2 w-[100vw] max-w-[100vw] h-[8vh] bg-gradient-to-b from-black to-transparent">
+                <p className="text-lg font-bold">Nav</p>
             </div>
 
         </>
