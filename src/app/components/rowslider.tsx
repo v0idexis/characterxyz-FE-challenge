@@ -2,7 +2,7 @@
 import React, { Fragment, useCallback, useState, useEffect } from 'react'
 import useEmblaCarousel, {
     EmblaCarouselType,
-    EmblaOptionsType
+    // EmblaOptionsType
 } from 'embla-carousel-react'
 import crypto from 'crypto'
 import '@styles/embla.css'
@@ -36,10 +36,14 @@ type Props = {
 }
 
 const RowSlider: React.FC<Props> = (props: Props) => {
-    const moviesArray: MoviesObject[] = props.moviesArray;
-    let windowWidth: number = window !== undefined ? window.innerWidth : 767;
 
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, slidesToScroll: windowWidth > 767 ? 3 : 1, startIndex: 0, watchDrag: true, })//containScroll: 'trimSnaps'
+    // let windowWidth: number = 767;
+    // useEffect(() => {
+    //     windowWidth = window.innerWidth;
+    // }, []);
+
+    // : windowWidth > 767 ? 3 : 1
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, slidesToScroll: 3, startIndex: 0, watchDrag: true, })//containScroll: 'trimSnaps'
     const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
     const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
 
@@ -65,7 +69,9 @@ const RowSlider: React.FC<Props> = (props: Props) => {
         emblaApi.on('select', onSelect)
     }, [emblaApi, onSelect])
 
-    console.log(moviesArray)
+    const moviesArray: MoviesObject[] = props.moviesArray;
+
+    console.log(moviesArray.length)
     return (
         <>
             <div className="embla relative flex items-center w-[100vw] max-w-[100vw]" ref={emblaRef}>
@@ -75,19 +81,20 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                             {
                                 return (
                                     <Fragment key={hashStr(item.backdrop_path)}>
-                                        <div className="embla__slide max-h-[300px] w-30 max-w-30 relative" >
-                                            <div className="max-h-[300px] rounded-lg bg-gray-900 relative z-10 "> //hover:w-[300px] hover:max-w-[300px]
-                                                <img
-                                                    alt="Movie Poster"
-                                                    className="object-cover rounded-lg shadow-md relative top-0 hover:z-20 w-[200px] max-w-[200px] h-[300px] max-h-[300px]"
-                                                    // height="300"
-                                                    src={tmdb_img + item.poster_path}
-                                                    style={{
-                                                        aspectRatio: "200/300",
-                                                    }}
-                                                // width="200"
-                                                />
-                                            </div>
+                                        <div className="embla__slide max-h-[300px] w-30 max-w-30" >
+                                            {/* //hover:w-[300px] hover:max-w-[300px] */}
+                                            {/* <div className="max-h-[300px] rounded-lg bg-gray-900 relative z-10 "> */}
+                                            <img
+                                                alt="Movie Poster"
+                                                className="object-cover rounded-lg w-[200px] max-w-[200px] h-[300px] max-h-[300px]"
+                                                height="300"
+                                                src={tmdb_img + item.poster_path}
+                                                style={{
+                                                    aspectRatio: "200/300",
+                                                }}
+                                                width="200"
+                                            />
+                                            {/* </div> */}
                                             {/* <div className="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black text-white rounded-b-lg">
                                                 <h2 className="text-sm">{item.title}</h2>
                                             </div> */}
@@ -99,12 +106,12 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                     }
                 </div>
                 <div className="embla__prev absolute left-0 top-0 bottom-0 flex items-center" onClick={scrollPrev} style={{ display: prevBtnDisabled ? 'none' : 'flex' }}>
-                    <div className="text-lg px-4 py-2 bg-white bg-opacity-50 z-10">
+                    <div className="text-lg px-4 py-2 bg-white bg-opacity-50 z-40">
                         {`<`}
                     </div>
                 </div>
                 <div className="embla__next absolute right-0 top-0 bottom-0 flex items-center" onClick={scrollNext} style={{ display: nextBtnDisabled ? 'none' : 'flex' }}>
-                    <div className="text-lg px-4 py-2 bg-white bg-opacity-50 z-10">
+                    <div className="text-lg px-4 py-2 bg-white bg-opacity-50 z-40">
                         {`>`}
                     </div>
                 </div>

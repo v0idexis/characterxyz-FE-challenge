@@ -41,7 +41,6 @@ const Home: React.FC = () => {
     (async () => {
       try {
         let trending: Array<MovieObject> = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US`, options).then(resp => resp.json()).then(data => data.results);
-
         setLatest(trending);
       }
       catch (e) {
@@ -54,7 +53,7 @@ const Home: React.FC = () => {
   return (
     <>
       {/* <NavBar /> */}
-      {/* <Carousel /> */}
+      <Carousel />
       <RowSlider moviesArray={latest} />
       {/* <Footer /> */}
     </>

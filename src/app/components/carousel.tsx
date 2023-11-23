@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import '../../../public/customStyles/embla.css'
+import '@styles/embla.css'
 import Image from 'next/image';
 const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;
 const tmdb_bearer: string = process.env.NEXT_PUBLIC_TMDB_KEY!;
