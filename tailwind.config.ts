@@ -14,13 +14,16 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       dropShadow: {
-        'xl': '0 11px 15px #000000'
+        'xl': '0 11px 15px #000000',
+        'sm': '0 5px 4px #000000'
       }
     },
     screens: {
-      '2xl': { 'max': '1400px' },
+      '4xl': { 'min': '2000px' },
 
-      'xl': { 'max': '1279px' },
+      '2xl': { 'min': '1440px' },
+
+      'xl': { 'min': '1279px' },
 
       'lg': { 'max': '1023px' },
 
