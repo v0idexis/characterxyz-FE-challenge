@@ -1,14 +1,10 @@
 'use client'
-import React, { Fragment, useCallback, useState, useEffect, useRef, ReactElement } from 'react'
+import React, { Fragment, useCallback, useState, useEffect } from 'react'
 import useEmblaCarousel, {
     EmblaCarouselType,
     EmblaOptionsType
 } from 'embla-carousel-react'
-import {
-    usePrevNextButtons
-} from './prevNext'
 import crypto from 'crypto'
-// import window from 'global'
 import '@styles/embla.css'
 import Link from 'next/link'
 import Image from 'next/image';
@@ -130,7 +126,6 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                 <div className="absolute w-16 left-0 top-0 bottom-0 flex items-center justify-start bg-gradient-to-r from-black to-transparent cursor-pointer" onClick={scrollPrev} style={
                     {
                         display: prevBtnDisabled ? 'none' : 'flex'
-                        // display: 'flex'
                     }
                 }>
                     <div className="text-2xl font-bold text-white px-4 py-2 bg-white bg-opacity-20 z-10 rounded-r-lg">
@@ -140,7 +135,6 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                 <div className="absolute w-16 right-0 top-0 bottom-0 flex items-center justify-end bg-gradient-to-l from-black to-transparent cursor-pointer" onClick={scrollNext} style={
                     {
                         display: nextBtnDisabled ? 'none' : 'flex'
-                        // display: 'flex'
                     }
                 }>
                     <div className="text-2xl font-bold text-white px-4 py-2 bg-white bg-opacity-20 z-10 rounded-l-lg">
