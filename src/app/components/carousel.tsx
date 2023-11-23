@@ -54,20 +54,15 @@ const Carousel: React.FC = () => {
                     {
                         highlights.length > 0 && highlights.map((movie: MovieObject) => {
                             return (
-                                <Fragment >
+                                <Fragment key={movie.id}>
                                     <div className="embla__slide">
                                         <div className={`h-[92dvh] w-full md:h-[50dvh]`}>
-
-
                                             <div className="flex flex-col items-start justify-end bg-white h-[92dvh] pl-8 pb-16 relative md:p-2 md:items-center md:justify-center">
                                                 <h3 className="text-xl font-bold text-gray-800 mb-2 z-10">Movie Title</h3>
                                                 <p className="text-gray-600 z-10">Movie Description</p>
                                                 <button className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-lg z-10">Watch Now</button>
                                                 <Image layout='fill' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-full h-[100dvh] absolute object-cover -z-0" />
                                             </div>
-
-
-
                                         </div>
                                     </div>
                                 </Fragment>
