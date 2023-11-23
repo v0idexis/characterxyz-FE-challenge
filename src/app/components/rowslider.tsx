@@ -2,7 +2,7 @@
 import React, { Fragment, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import '@styles/embla_slider.css'
-
+//v0
 
 const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;
 
