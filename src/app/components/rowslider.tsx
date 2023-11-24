@@ -92,7 +92,7 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                                             <Fragment key={hashStr(item.backdrop_path)}>
                                                 <div className="embla__slide w-[200px] max-w-[200px] rounded-lg relative bg-gray-900 ease-in-out duration-150 overflow-hidden hover:w-[400px] hover:max-w-[400px] hover:z-20" >
                                                     <div className="flex flex-row items-starts">
-                                                        <Link href={{ pathname: "/player", query: { movie: item.id } }}>
+                                                        <Link href={{ pathname: "/info", query: { movie: item.id } }}>
                                                             <img
                                                                 alt="Movie Poster"
                                                                 className="object-cover rounded-lg w-[200px] max-w-[200px] h-[300px] max-h-[300px]"
@@ -106,7 +106,7 @@ const RowSlider: React.FC<Props> = (props: Props) => {
                                                         </Link>
                                                         <div className="h-[300px] w-full flex flex-col justify-center align-middle p-4">
                                                             <div className="text-xl font-bold text-white text-center">{item.title}</div>
-                                                            <Link href={{ pathname: "/player", query: { movie: item.id } }} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
+                                                            <Link href={{ pathname: "/info", query: { movie: item.id } }} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
                                                                 <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
                                                             </Link>
                                                         </div>
