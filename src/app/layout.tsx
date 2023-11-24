@@ -12,6 +12,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'CXYZ FE',
   description: 'Demo',
+  icons: {
+    icon: '/favicon.gif'
+  }
 }
 
 export default function RootLayout({

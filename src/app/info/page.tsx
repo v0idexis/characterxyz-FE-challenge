@@ -18,12 +18,20 @@ const options = {
     }
 };
 
+function timeLength(num: number): string {
+    let hours: number = (num / 60);
+    let rhours: number = Math.floor(hours);
+    let minutes: number = (hours - rhours) * 60;
+    let rminutes: number = Math.round(minutes);
+    return rhours + "h " + rminutes + " m";
+}
+
 type MovieObject = {
     adult: boolean,
     backdrop_path: string,
     belongs_to_collection: any,
     budget: number,
-    genres: object[],
+    genres: { name: string }[],
     homepage: string,
     id: number,
     imdb_id: string,
@@ -48,7 +56,7 @@ type MovieObject = {
 }
 
 const Info = () => {
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     const [movie, setMovie] = useState<MovieObject | Record<string, never>>({});
 
     let urlParams = useSearchParams();
@@ -88,9 +96,8 @@ const Info = () => {
             <Loading />
             :
             <>
-                {/* <NavBar /> */}
-                {/* Info Box */}
-                <div className="" >
+                <NavBar />
+                <div className="w-full max-w-full bg-gray-950" >
                     <div className="max-w-full h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh]">
                         <div className={`h-[92dvh] max-h-[92dvh] max-w-full w-screen md:h-[70dvh] md:max-h-[70dvh] bg-black`}>
                             <div className="flex flex-col items-start justify-end gap-4 md:gap-2 bg-white h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh] pl-16 pb-20 relative md:p-2 md:items-center md:justify-center">
@@ -100,7 +107,7 @@ const Info = () => {
                                     </>
                                 }
                                 <h3 className=" font-Poppins text-4xl 4xl:text-8xl md:text-3xl font-bold text-white md:text-center -mb-2 z-10 drop-shadow-sm max-w-[50vw] md:max-w-[90vw]">{movie.title}</h3>
-                                <p className="text-2xl 4xl:text-4xl md:text-lg text-white md:text-center drop-shadow-sm max-w-[70vw] md:max-w-[80vw] truncate overflow-hidden z-10">{movie.overview}</p>
+                                <p className="text-2xl 4xl:text-4xl md:text-lg text-white md:text-center drop-shadow-sm max-w-[70vw] md:max-w-[80vw] truncate overflow-hidden z-10">{movie.tagline}</p>
 
                                 <Link href="#" className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
                                     <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
@@ -109,8 +116,33 @@ const Info = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="max-w-full pt-8 pl-16 pr-16 pb-20 bg-gray-950 flex flex-row gap-[5%] md:flex-col md:gap-16">
+                        <div className="flex flex-col gap-4 text-lg font-bold w-[65%] md:w-full">
+                            <div className="flex flex-row gap-4">
+                                <p className="text-green-500">{Number(movie.vote_average).toFixed(1)}</p>
+                                <p className="text-white">·</p>
+                                <p className="text-white">{new Date(movie.release_date).getFullYear()}</p>
+                                <p className="text-white">·</p>
+                                <p className="text-white">{timeLength(movie.runtime)}</p>
+                            </div>
+                            <div className="text-gray-300 font-semibold">{movie.overview}</div>
+                        </div>
+
+                        <div className="flex flex-col gap-4 text-md font-medium w-[30%] md:w-full">
+                            <div className="flex flex-row gap-4 text-white">
+                                <p>
+                                    <p className="text-gray-400 w-fit">Genres:</p> {[...[...movie.genres].map(genre => { return genre.name })].join(', ')}
+                                </p>
+                            </div>
+                            <div className="flex flex-row gap-4 text-white">
+                                <p>
+                                    <p className="text-gray-400 w-fit">Languages:</p> {[...[...movie.spoken_languages].map(lang => { return lang.english_name })].join(', ')}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {/* <Footer /> */}
+                <Footer />
             </>
     )
 }
