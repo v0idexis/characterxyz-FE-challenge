@@ -4,6 +4,7 @@ import NavBar from './components/navbar'
 import Footer from './components/footer'
 import Carousel from './components/carousel'
 import RowSlider from './components/rowslider'
+import Loading from './components/loading'
 
 
 const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;
@@ -36,12 +37,15 @@ type MovieObject = {
 
 const Home: React.FC = () => {
   const [latest, setLatest] = useState<Array<MovieObject>>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
 
   useEffect(() => {
     (async () => {
       try {
         let trending: Array<MovieObject> = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US`, options).then(resp => resp.json()).then(data => data.results);
         setLatest(trending);
+        setLoading(false)
       }
       catch (e) {
         console.log(`Error ${e}`)
@@ -51,14 +55,17 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div className='w-full h-auto max-w-full bg-gray-950'>
-        <NavBar />
-        <Carousel />
-        {latest.length !== 0 && <RowSlider moviesArray={latest} title='Latest >'/>}
-        {/* <Footer /> */}
-      </div>
-    </>
+    (loading) ?
+      <Loading />
+      :
+      <>
+        <div className='w-full h-auto max-w-full bg-gray-950'>
+          <NavBar />
+          <Carousel />
+          {latest.length !== 0 && <RowSlider moviesArray={latest} title='Latest >' />}
+          {/* <Footer /> */}
+        </div>
+      </>
   )
 }
 
