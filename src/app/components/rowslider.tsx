@@ -67,25 +67,21 @@ const RowSlider: React.FC<Props> = (props: Props) => {
     )
 
     const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-        console.log('Inside onSelect')
         setPrevBtnDisabled(!emblaApi.canScrollPrev())
         setNextBtnDisabled(!emblaApi.canScrollNext())
     }, [])
 
     useEffect(() => {
-        console.log('inside UseEffect')
         if (!emblaApi) return
         onSelect(emblaApi)
         emblaApi.on('reInit', onSelect)
         emblaApi.on('select', onSelect)
     }, [emblaApi, onSelect])
 
-    console.log('Movies Length: ' + moviesArray.length)
-
     return (
         <>
+            <p className="text-lg text-white font-bold mb-2 ml-1 pl-16 pr-16 md:p-2">{props.title}</p>
             <div className='w-full max-w-full overflow-hidden pl-16 pr-16 md:p-2 relative'>
-                <p className="text-lg text-white font-bold mb-4 ml-1">{props.title}</p>
                 <div className="embla relative items-center w-full" >
                     <div className="embla__viewport relative items-center w-full" ref={emblaRef}>
                         <div className='embla__container flex gap-4'>
