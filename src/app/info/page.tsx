@@ -117,7 +117,7 @@ const Info = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="max-w-full pt-8 pl-16 pr-16 pb-20 bg-gray-950 flex flex-row gap-[5%] md:flex-col md:gap-16">
+                    <div className="max-w-full pt-8 pl-16 pr-16 pb-20 bg-gray-950 flex flex-row gap-[5%] md:flex-col md:pl-4 md:pr-4 md:gap-16">
                         <div className="flex flex-col gap-4 text-lg font-bold w-[65%] md:w-full">
                             <div className="flex flex-row gap-4">
                                 <p className="text-green-500">{Number(movie.vote_average).toFixed(1)}</p>
