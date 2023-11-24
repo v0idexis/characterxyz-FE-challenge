@@ -113,7 +113,7 @@ const Info = () => {
                                 <Link href="#" className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
                                     <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
                                 </Link>
-                                <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen max-w-full h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh] absolute object-cover -z-0" fill />
+                                <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen max-w-full h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh] absolute object-cover -z-0 overflow-hidden" fill />
                             </div>
                         </div>
                     </div>
