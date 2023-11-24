@@ -30,6 +30,8 @@ const config: Config = {
       'md': { 'max': '767px' },
 
       'sm': { 'max': '639px' },
+
+      'betterhover': { 'raw': '(hover: hover)' },
     },
   },
   plugins: [],
