@@ -28,6 +28,7 @@ const Footer = () => {
                     <p className="hover:text-gray-400 cursor-pointer">Contact Us</p>
                 </div>
             </div>
+            <p className="text-gray-500 cursor-pointer pl-16 -pb-8 -pt-8 bg-gray-950 md:p-4">{'None of these links go anywhere :)'}</p>
             <p className="text-white cursor-pointer pl-16 pb-16 -pt-8 bg-gray-950 md:p-4">{'©' + (String(new Date().getFullYear())) + ' cXYZ'}</p>
         </>
 

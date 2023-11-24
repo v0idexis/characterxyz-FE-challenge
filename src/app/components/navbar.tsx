@@ -62,9 +62,9 @@ const NavBar: React.FC = () => {
                         {avatarMenu &&
                             <>
                                 <div className="absolute right-0 top-10 flex flex-col p-4 bg-gray-800 z-40 rounded-lg gap-2">
-                                    <p className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Account</p>
-                                    <p className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Help</p>
-                                    <p className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Log Out</p>
+                                    <Link href="/login" className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Account</Link>
+                                    <Link href="/login" className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Help</Link>
+                                    <Link href="/login" className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Log Out</Link>
                                 </div>
                             </>}
                     </div>
