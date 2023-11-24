@@ -45,7 +45,7 @@ type MovieObject = {
     release_date: string,
     revenue: number,
     runtime: number,
-    spoken_languages: object[],
+    spoken_languages: { english_name: string }[],
     status: string,
     tagline: string,
     title: string,
