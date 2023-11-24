@@ -1,10 +1,10 @@
 'use client'
-import React, { useEffect, useState, useCallback } from 'react'
-import NavBar from './components/navbar'
-import Footer from './components/footer'
-import Carousel from './components/carousel'
-import RowSlider from './components/rowslider'
-import Loading from './components/loading'
+import React, { useEffect, useState } from 'react'
+import NavBar from '@components/navbar'
+import Footer from '@components/footer'
+import Carousel from '@components/carousel'
+import RowSlider from '@components/rowslider'
+import Loading from '@components/loading'
 
 
 const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;

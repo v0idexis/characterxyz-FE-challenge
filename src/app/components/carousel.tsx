@@ -67,7 +67,7 @@ const Carousel: React.FC = () => {
         <>
             <div className='w-full max-w-full overflow-hidden mb-8'>
                 <div className="embla" ref={emblaRef}>
-                    <div className={"embla__container max-w-full h-[92dvh] md:h-[60dvh]"}>
+                    <div className={"embla__container max-w-full h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh]"}>
                         {
                             highlights.length > 0 && highlights.map((movie: MovieObject) => {
                                 let hasLogo: boolean = false;
@@ -76,9 +76,9 @@ const Carousel: React.FC = () => {
                                 }
                                 return (
                                     <Fragment key={movie.id}>
-                                        <div className="embla__slide max-w-full h-[92dvh] md:h-[60dvh]">
-                                            <div className={`h-[92dvh] max-w-full w-screen md:h-[60dvh] bg-black`}>
-                                                <div className="flex flex-col items-start justify-end gap-4 md:gap-2 bg-white h-[92dvh] md:h-[60dvh] pl-16 pb-20 relative md:p-2 md:items-center md:justify-center">
+                                        <div className="embla__slide max-w-full h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh]">
+                                            <div className={`h-[92dvh] max-h-[92dvh] max-w-full w-screen md:h-[70dvh] md:max-h-[70dvh] bg-black`}>
+                                                <div className="flex flex-col items-start justify-end gap-4 md:gap-2 bg-white h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh] pl-16 pb-20 relative md:p-2 md:items-center md:justify-center">
                                                     {hasLogo &&
                                                         <>
                                                             <Image src={tmdb_img + movie.logo} alt={movie.title} width={250} height={250} className='z-10 drop-shadow-xl object-contain' />
@@ -90,7 +90,7 @@ const Carousel: React.FC = () => {
                                                     <Link href={{ pathname: "/info", query: { movie: movie.id } }} className="flex flex-row items-center gap-1 mt-4 font-bold bg-white drop-shadow-xl text-black px-4 py-2 rounded-md z-10 hover:scale-110 ease-in-out duration-150">
                                                         <Image loading='lazy' src={playSvg} alt="OpenMovie" height={30} width={30} />Watch Now
                                                     </Link>
-                                                    <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen h-[92dvh] md:h-[60dvh] absolute object-cover -z-0" fill />
+                                                    <Image loading='eager' src={tmdb_img + movie.backdrop_path} alt="Movie Poster" className="w-screen max-w-full h-[92dvh] max-h-[92dvh] md:h-[70dvh] md:max-h-[70dvh] absolute object-cover -z-0" fill />
                                                 </div>
                                             </div>
                                         </div>
