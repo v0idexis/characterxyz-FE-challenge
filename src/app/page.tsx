@@ -6,8 +6,6 @@ import Carousel from '@components/carousel'
 import RowSlider from '@components/rowslider'
 import Loading from '@components/loading'
 
-
-const tmdb_img: string = process.env.NEXT_PUBLIC_TMDB_PATH!;
 const tmdb_bearer: string = process.env.NEXT_PUBLIC_TMDB_KEY!;
 
 const options = {
