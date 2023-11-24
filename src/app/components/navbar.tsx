@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
                     <div className="flex flex-row gap-4 items-center md:hidden">
                         <Link href="/" className="text-md text-white hover:text-gray-400">Movies</Link>
                         <Link href="/new" className="text-md text-white hover:text-gray-400">New & Popular</Link>
-                        <Link href="/signup" className="text-md text-white hover:text-gray-400">Login</Link>
+                        <Link href="/login" className="text-md text-white hover:text-gray-400">Login</Link>
                     </div>
 
                     <div className="hidden md:flex relative">
@@ -42,7 +42,7 @@ const NavBar: React.FC = () => {
                                 <div className="absolute left-0 top-10 flex w-48 flex-col p-4 bg-gray-800 z-40 rounded-lg gap-2">
                                     <Link href="/" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Movies</Link>
                                     <Link href="/new" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">New & Popular</Link>
-                                    <Link href="/signup" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Login</Link>
+                                    <Link href="/login" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Login</Link>
                                 </div>
                             </>
                         }

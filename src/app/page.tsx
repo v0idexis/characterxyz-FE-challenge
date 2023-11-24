@@ -72,7 +72,7 @@ const Home: React.FC = () => {
           <NavBar />
           <Carousel />
           <div className="flex flex-col gap-16 pb-16">
-            {nowPlaying.length !== 0 && <RowSlider moviesArray={nowPlaying} title='In theaters >' />}
+            {nowPlaying.length !== 0 && <RowSlider moviesArray={nowPlaying} title='In Theaters >' />}
             {topRated.length !== 0 && <RowSlider moviesArray={topRated} title='Top Rated >' />}
             {popular.length !== 0 && <RowSlider moviesArray={popular} title='Popular >' />}
           </div>
