@@ -61,9 +61,6 @@ const Info = () => {
 
     let urlParams = useSearchParams();
     let movieId: string | null = urlParams.get('movie');
-    if (movieId === null || movieId === '') {
-        return 'Invalid request'
-    }
 
     useEffect(() => {
         (async () => {
@@ -85,7 +82,11 @@ const Info = () => {
                 console.log('Movie get failed')
             }
         })();
-    }, []);
+    }, [movieId]);
+
+    if (movieId === null || movieId === '') {
+        return 'Invalid request'
+    }
 
     let hasLogo: boolean = false;
     if ('logo' in movie) {
@@ -131,12 +132,12 @@ const Info = () => {
                         <div className="flex flex-col gap-4 text-md font-medium w-[30%] md:w-full">
                             <div className="flex flex-row gap-4 text-white">
                                 <p>
-                                    <p className="text-gray-400 w-fit">Genres:</p> {[...[...movie.genres].map(genre => { return genre.name })].join(', ')}
+                                    <span className="text-gray-400 w-fit">Genres:</span> {[...[...movie.genres].map(genre => { return genre.name })].join(', ')}
                                 </p>
                             </div>
                             <div className="flex flex-row gap-4 text-white">
                                 <p>
-                                    <p className="text-gray-400 w-fit">Languages:</p> {[...[...movie.spoken_languages].map(lang => { return lang.english_name })].join(', ')}
+                                    <span className="text-gray-400 w-fit">Languages:</span> {[...[...movie.spoken_languages].map(lang => { return lang.english_name })].join(', ')}
                                 </p>
                             </div>
                         </div>
