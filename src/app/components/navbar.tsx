@@ -39,10 +39,10 @@ const NavBar: React.FC = () => {
                         <div className="text-md text-white font-bold cursor-pointer" onClick={toggleNav}>Browse</div>
                         {navMenu &&
                             <>
-                                <div className="absolute left-0 top-10 flex w-32 flex-col p-4 bg-gray-800 z-40 rounded-lg gap-2">
-                                    <Link href="/" className="text-xs text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Movies</Link>
-                                    <Link href="/new" className="text-xs text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">New & Popular</Link>
-                                    <Link href="/signup" className="text-xs text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Login</Link>
+                                <div className="absolute left-0 top-10 flex w-48 flex-col p-4 bg-gray-800 z-40 rounded-lg gap-2">
+                                    <Link href="/" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Movies</Link>
+                                    <Link href="/new" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">New & Popular</Link>
+                                    <Link href="/signup" className="text-sm text-start break-keep font-bold text-white cursor-pointer hover:text-gray-400">Login</Link>
                                 </div>
                             </>
                         }
@@ -62,9 +62,9 @@ const NavBar: React.FC = () => {
                         {avatarMenu &&
                             <>
                                 <div className="absolute right-0 top-10 flex flex-col p-4 bg-gray-800 z-40 rounded-lg gap-2">
-                                    <p className="text-xs text-end font-bold text-white cursor-pointer hover:text-gray-400">Account</p>
-                                    <p className="text-xs text-end font-bold text-white cursor-pointer hover:text-gray-400">Help</p>
-                                    <p className="text-xs text-end font-bold text-white cursor-pointer hover:text-gray-400">Log Out</p>
+                                    <p className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Account</p>
+                                    <p className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Help</p>
+                                    <p className="text-sm text-end font-bold text-white cursor-pointer hover:text-gray-400">Log Out</p>
                                 </div>
                             </>}
                     </div>

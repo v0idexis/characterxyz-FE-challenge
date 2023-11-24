@@ -36,15 +36,24 @@ type MovieObject = {
 }
 
 const Home: React.FC = () => {
-  const [latest, setLatest] = useState<Array<MovieObject>>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [nowPlaying, setNowPlaying] = useState<Array<MovieObject>>([]);
+  const [topRated, setTopRated] = useState<Array<MovieObject>>([]);
+  const [popular, setPopular] = useState<Array<MovieObject>>([]);
 
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {
       try {
-        let trending: Array<MovieObject> = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US`, options).then(resp => resp.json()).then(data => data.results);
-        setLatest(trending);
+        let nowPlayingData: Array<MovieObject> = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US`, options).then(resp => resp.json()).then(data => data.results);
+        setNowPlaying(nowPlayingData);
+
+        let topRatedData: Array<MovieObject> = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US`, options).then(resp => resp.json()).then(data => data.results);
+        setTopRated(topRatedData);
+
+        let popularData: Array<MovieObject> = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US`, options).then(resp => resp.json()).then(data => data.results);
+        setPopular(popularData);
+
         setLoading(false)
       }
       catch (e) {
@@ -62,8 +71,12 @@ const Home: React.FC = () => {
         <div className='w-full h-auto max-w-full bg-gray-950'>
           <NavBar />
           <Carousel />
-          {latest.length !== 0 && <RowSlider moviesArray={latest} title='Latest >' />}
-          {/* <Footer /> */}
+          <div className="flex flex-col gap-16 pb-16">
+            {nowPlaying.length !== 0 && <RowSlider moviesArray={nowPlaying} title='In theaters >' />}
+            {topRated.length !== 0 && <RowSlider moviesArray={topRated} title='Top Rated >' />}
+            {popular.length !== 0 && <RowSlider moviesArray={popular} title='Popular >' />}
+          </div>
+          <Footer />
         </div>
       </>
   )
